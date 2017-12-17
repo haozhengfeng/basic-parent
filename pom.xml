@@ -27,6 +27,7 @@
 		<module>basic-mybatis</module>
 		<module>basic-lucene</module>
 		<module>basic-freemarker</module>
+		<module>basic-redis</module>
 	</modules>
 
 	<properties>
