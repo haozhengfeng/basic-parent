@@ -5,24 +5,16 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.haozf.common.BaseLogger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-public class IndexController {
-    
-    private Logger log = LoggerFactory.getLogger(IndexController.class); 
+public class IndexController extends BaseLogger{
     
     @RequestMapping(value={"","index"})
     public String index(){
-        log.trace("======trace");  
-        log.debug("======debug");  
-        log.info("======info");  
-        log.warn("======warn");  
-        log.error("======error");  
         return "index";
     }
     
