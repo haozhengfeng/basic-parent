@@ -28,6 +28,7 @@
 		<module>basic-lucene</module>
 		<module>basic-freemarker</module>
 		<module>basic-redis</module>
+		<module>basic-web2.0</module>
 	</modules>
 
 	<properties>
