@@ -1,10 +1,10 @@
 package org.haozf.member.model;
 
-import java.io.Serializable;
+import org.haozf.security.model.Realm;
 
-public class Member implements Serializable{
+public class Member extends Realm{
     
-    private static final long serialVersionUID = -398249604523488656L;
+    private static final long serialVersionUID = 8887424219718604254L;
     
     private String id;
     private String name;

@@ -5,13 +5,13 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.haozf.common.BaseLogger;
+import org.haozf.common.BaseController;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-public class IndexController extends BaseLogger{
+public class IndexController extends BaseController{
     
     @RequestMapping(value={"","index"})
     public String index(){

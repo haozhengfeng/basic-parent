@@ -1,22 +1,20 @@
 package org.haozf.member.controller;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
-import org.haozf.common.BaseLogger;
+import org.haozf.common.BaseController;
 import org.haozf.member.model.Member;
-import org.haozf.session.SecurityManager;
+import org.haozf.security.manager.SecurityManager;
+import org.haozf.security.model.Realm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-
-
 @Controller
-public class LoginController extends BaseLogger{
+public class LoginController extends BaseController{
     
     @Autowired
-    SecurityManager securityManager;
+    SecurityManager<Realm> securityManager;
     
     @RequestMapping("member/toLogin")
     public String toLogin(HttpServletRequest request){
