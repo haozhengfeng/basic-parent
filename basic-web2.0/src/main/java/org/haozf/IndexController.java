@@ -5,24 +5,23 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.haozf.common.BaseController;
+import org.haozf.member.service.MemberService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-public class IndexController {
+public class IndexController extends BaseController{
     
-    private Logger log = LoggerFactory.getLogger(IndexController.class); 
+    @Autowired
+    MemberService memberService;
+    
     
     @RequestMapping(value={"","index"})
     public String index(){
-        log.trace("======trace");  
-        log.debug("======debug");  
-        log.info("======info");  
-        log.warn("======warn");  
-        log.error("======error");  
+        System.out.println(memberService.getUser());
         return "index";
     }
     

@@ -1,5 +1,7 @@
 package org.haozf.security.manager;
 
+import java.util.UUID;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -31,6 +33,7 @@ public class SessionManager<T extends Realm> extends BaseLogger{
     
     public void setSession(Realm realm){
         log.info("设置session信息");
+        realm.setToken(UUID.randomUUID().toString());
         session.setAttribute(SESSION_MEMBER_ID, realm.getToken());
         session.setAttribute(SESSION_MEMBER, realm);
     }
