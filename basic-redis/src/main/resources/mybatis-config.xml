@@ -2,15 +2,6 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-
-	<setting name="logImpl" value="SLF4J"/>
-	<setting name="logPrefix" value="dao."/>
-	
-	<typeAliases>
-		<typeAlias alias="User" type="org.haozf.basic.mybatis.model.User" />
-		<typeAlias alias="Article" type="org.haozf.basic.mybatis.model.Article" />
-	</typeAliases>
-
 	<!-- plugins在配置文件中的位置必须符合要求，否则会报错，顺序如下: properties?, settings?, typeAliases?, 
 		typeHandlers?, objectFactory?,objectWrapperFactory?, plugins?, environments?, 
 		databaseIdProvider?, mappers? -->
@@ -44,21 +35,4 @@
 			<property name="returnPageInfo" value="none" />
 		</plugin>
 	</plugins>
-
-	<environments default="development">
-		<environment id="development">
-			<transactionManager type="JDBC" />
-			<dataSource type="POOLED">
-				<property name="driver" value="com.mysql.jdbc.Driver" />
-				<property name="url" value="jdbc:mysql://127.0.0.1:3306/mybatis" />
-				<property name="username" value="root" />
-				<property name="password" value="" />
-			</dataSource>
-		</environment>
-	</environments>
-
-	<mappers>
-		<mapper resource="org/haozf/basic/mybatis/model/User.xml" />
-	</mappers>
-
 </configuration>
