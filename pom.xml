@@ -29,6 +29,7 @@
 		<module>basic-freemarker</module>
 		<module>basic-redis</module>
 		<module>basic-web2.0</module>
+		<module>basic-cache</module>
 	</modules>
 
 	<properties>
