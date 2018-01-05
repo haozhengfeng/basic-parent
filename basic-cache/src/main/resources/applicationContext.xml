@@ -29,6 +29,11 @@
 	</bean>
 
 	<context:annotation-config />
+	
+	<context:component-scan base-package="org.haozf">
+		<context:exclude-filter type="annotation"
+			expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
     
 	<!-- 加载更多其它配置 例如数据库、缓存、shiro、tx事务等 -->
 	<import resource="classpath*:applicationContext-*.xml" />
