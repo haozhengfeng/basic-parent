@@ -1,4 +1,4 @@
-package org.haozf;
+package org.haozf.service;
 
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
@@ -9,7 +9,7 @@ import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Component;
 
 @Component
-public class RedisComponet {
+public class RedisService {
 
 	@Autowired
 	StringRedisTemplate redisTemplate;

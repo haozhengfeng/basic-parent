@@ -1,4 +1,4 @@
-package org.haozf;
+package org.haozf.controller;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -6,6 +6,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import org.haozf.common.BaseController;
+import org.haozf.service.RedisService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class IndexController extends BaseController{
     
 	@Autowired
-	RedisComponet redisComponet;
+	RedisService redisComponet;
 	
     @RequestMapping(value={"","index"})
     @ResponseBody
