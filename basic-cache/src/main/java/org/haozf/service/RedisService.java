@@ -58,13 +58,22 @@ public class RedisService {
 	}
 
 	/**
+	 * 获取所有的key
+	 * @param pattern
+	 * @return
+	 */
+	public Set<String> keys(final String pattern) {
+		return redisTemplate.keys(pattern);
+	}
+	
+	/**
 	 * 读取缓存
 	 * 
 	 * @param key
 	 * @return
 	 */
-	public Object get(final String key) {
-		Object result = null;
+	public String get(final String key) {
+		String result = null;
 		ValueOperations<String, String> operations = redisTemplate.opsForValue();
 		result = operations.get(key);
 		return result;
@@ -108,5 +117,15 @@ public class RedisService {
 		}
 		return result;
 	}
+
+	/**
+	 * 获取key的类型
+	 * @param key
+	 * @return NONE,STRING,LIST,SET,ZSET,HASH
+	 */
+	public String type(String key){
+		return redisTemplate.type(key).toString(); 
+	}
+	
 
 }
