@@ -63,7 +63,6 @@ public class TestListToRedis {
 	@Test
 	public void testKeys() {
 		Set<String> keys = redisService.keys("*");
-		System.out.println(keys);
 		for (String key : keys) {
 			System.out.println(key + "  " + redisService.type(key) + "   " + redisService.get(key));
 		}
@@ -92,3 +91,5 @@ public class TestListToRedis {
 	}
 
 }
+
+

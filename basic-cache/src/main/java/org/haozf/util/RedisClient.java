@@ -3,6 +3,9 @@ package org.haozf.util;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -13,6 +16,8 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.protocol.HTTP;
 import org.apache.http.util.EntityUtils;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class RedisClient {
 
@@ -157,6 +162,16 @@ public class RedisClient {
 		params.add(new BasicNameValuePair("key", key));
 		String rt = post(this.url + this.type, params);
 		return rt;
+	}
+	
+	public static void main(String[] args) {
+		RedisClient redisClient = new RedisClient();
+		List<NameValuePair> params = new ArrayList<NameValuePair>();
+		params.add(new BasicNameValuePair("auth", "0"));
+		params.add(new BasicNameValuePair("info", "{'newsid':'95103'}"));
+		String rt = redisClient.post("http://open.d1cm.com/jxindex/newsdetail.action", params);
+		System.out.println(JSONObject.fromObject(rt).get("news"));
+		//System.out.println(rt);
 	}
 
 }

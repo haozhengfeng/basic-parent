@@ -3,16 +3,28 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="jedisConnectionFactory"
-		class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"
-		p:host-name="localhost" 
-		p:port="6379" />
+	<!-- redis数据源 -->
+	<bean id="poolConfig" class="redis.clients.jedis.JedisPoolConfig">  
+	    <property name="maxIdle" value="${redis.maxIdle}" />  
+	    <property name="maxTotal" value="${redis.maxActive}" />  
+	    <property name="maxWaitMillis" value="${redis.maxWait}" />  
+	    <property name="testOnBorrow" value="${redis.testOnBorrow}" />  
+	</bean>
+	
+	<bean id="jedisConnectionFactory" 
+		class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"  
+    	p:host-name="${redis.host}" 
+    	p:port="${redis.port}" 
+    	p:password="${redis.pass}"  
+    	p:pool-config-ref="poolConfig"/>  
+		
 	<bean id="stringRedisTemplate" 
 		class="org.springframework.data.redis.core.StringRedisTemplate"
 		p:connection-factory-ref="jedisConnectionFactory" />
 
 	<bean id="keyPathGenerator" 
 		class="org.haozf.util.KeyPathGenerator" />
+		
 	<bean id="redisClient" 
 		class="org.haozf.util.RedisClient" 
 		p:url="http://localhost/basic-cache"
