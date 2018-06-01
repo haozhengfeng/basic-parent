@@ -30,6 +30,7 @@
 		<module>basic-redis</module>
 		<module>basic-web2.0</module>
 		<module>basic-cache</module>
+		<module>basic-kafka</module>
 	</modules>
 
 	<properties>
